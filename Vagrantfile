@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
     puppet.vm.synced_folder ".", "/vagrant"
     #puppet.vm.synced_folder "../code", "/puppet_code"
     #puppet.vm.synced_folder "../puppetserver", "/puppet_puppetserver"
-    puppet.vm.box = "centos/7"
+    puppet.vm.box = "doozr/centos7"
     puppet.vm.hostname = "puppet.unixolu.com"
     puppet.vm.network :private_network, ip: "10.0.0.10"
     puppet.hostmanager.aliases = %w(puppet)
