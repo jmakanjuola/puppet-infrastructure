@@ -14,8 +14,9 @@ Vagrant.configure(2) do |config|
     config.vm.provider "virtualbox" do |v|
       v.memory =2048
     end
-#    puppet.vm.synced_folder ".", "/vagrant"
-#    puppet.vm.synced_folder "../code", "/puppet_puppetserver"
+    puppet.vm.synced_folder ".", "/vagrant"
+    #puppet.vm.synced_folder "../code", "/puppet_code"
+    #puppet.vm.synced_folder "../puppetserver", "/puppet_puppetserver"
     puppet.vm.box = "centos/7"
     puppet.vm.hostname = "puppet.unixolu.com"
     puppet.vm.network :private_network, ip: "10.0.0.10"
@@ -26,9 +27,9 @@ Vagrant.configure(2) do |config|
       sudo yum install puppetserver -y
       sudo sed -i 's/2g/512m/g' /etc/sysconfig/puppetserver
       sudo service puppetserver start
-      sudo rm -rf /etc/puppetlabs/code
-      sudo ln -s /puppet_code /etc/puppetlabs/puppetserver
-      sudo rm -rf /etc/puppetlabs/puppetserver
+      #sudo rm -rf /etc/puppetlabs/code
+      #sudo ln -s /puppet_code /etc/puppetlabs/puppetserver
+      #sudo rm -rf /etc/puppetlabs/puppetserver
       sudo ln -s /puppet_puppetserver /etc/puppetlabs/puppetserver
       echo "*.unixolu.com" | sudo tee /etc/puppetlabs/puppet/autosign.conf
       sudo service puppetmaster start
