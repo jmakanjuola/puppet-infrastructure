@@ -6,6 +6,7 @@ Vagrant.configure(2) do |config|
  config.hostmanager.enabled = true
  config.hostmanager.ignore_private_ip = false
  config.hostmanager.include_offline = true
+ config.vm.boot_timeout = 600
 
 
  config.vm.define "puppet" do |puppet|
