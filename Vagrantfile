@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
     config.vm.provider "virtualbox" do |v|
       v.memory =2048
     end
-    #puppet.vm.synced_folder ".", "/vagrant"
+    puppet.vm.synced_folder ".", "/vagrant"
     #puppet.vm.synced_folder "../code", "/puppet_code"
     #puppet.vm.synced_folder "../puppetserver", "/puppet_puppetserver"
     puppet.vm.box = "centos/7"
