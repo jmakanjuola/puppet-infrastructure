@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "agent1" do |agent1|
     # Puppet agent on Centos 7
-    agent1.vm.box = "centos/7"
+    agent1.vm.box = "doozr/centos7"
     agent1.vm.hostname = "agent1.unixolu.com"
     agent1.vm.network :private_network, ip: "10.0.0.11"
     agent1.hostmanager.aliases = %w(agent1)
